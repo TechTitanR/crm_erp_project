@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Orders</h3>
+<ul>
+    {% for order in orders %}
+    <li>Product: {{ order.product }} | Status: {{ order.status }} | Customer ID: {{ order.customer_id }}</li>
+    {% endfor %}
+</ul>
+
+<h4>Add Order</h4>
+<form method="POST" action="/add_order">
+    Customer ID: <input type="text" name="customer_id"><br>
+    Product: <input type="text" name="product"><br>
+    Status: <input type="text" name="status"><br>
+    <input type="submit" value="Add">
+</form>
+{% endblock %}
