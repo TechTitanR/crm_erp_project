@@ -62,7 +62,10 @@ def report():
     return render_template('report.html', customers=total_customers, orders=total_orders, orders_list=orders_list)
 
 
-if __name__ == '__main__':
-    with app.app_context():    # FIX: Adds required application context
+# ... your Flask routes above
+
+if __name__ == "__main__":
+    with app.app_context():
         db.create_all()
     app.run(debug=True)
+
