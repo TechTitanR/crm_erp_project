@@ -1,17 +1,20 @@
 # CRM/ERP Flask Web App
 
-A simple, lightweight **Customer and Order Management (CRM/ERP)** web application built using **Python Flask**, **SQLite**, and **SQLAlchemy**. This project demonstrates a basic ERP system with CRUD functionalities, a dashboard, reports, and error handling.
+A simple, lightweight **Customer and Order Management (CRM/ERP)** web application built using **Python Flask**, **SQLite**, and **SQLAlchemy**.  
+This project demonstrates a basic ERP system with CRUD functionalities, a dashboard, reports, error handling, and is fully ready for deployment on **Render**.
+
+---
 
 ## 🚀 Features
 
-✅ **Dashboard Summary**  
-✅ **Add / View Customers**  
-✅ **Add / View Orders**  
-✅ **Basic Report Generation**  
-✅ **Custom 404 & 500 Error Pages**  
+✅ Dashboard Summary  
+✅ Add / View Customers  
+✅ Add / View Orders  
+✅ Basic Report Generation  
+✅ Custom 404 & 500 Error Pages  
 ✅ Minimal UI with Bootstrap  
 ✅ SQLite for lightweight storage  
-✅ Ready for deployment on Render / Heroku  
+✅ Ready for deployment on Render  
 
 ---
 
@@ -25,14 +28,14 @@ crm_erp_project/
 ├── Procfile # Deployment file (Render/Heroku)
 ├── .gitignore # Git ignored files
 │
-├── templates/
+├── templates/ # HTML Templates
 │ ├── base.html # Base template
-│ ├── dashboard.html # Dashboard
-│ ├── customers.html # Customers Page
-│ ├── orders.html # Orders Page
-│ ├── report.html # Reports Page
-│ ├── 404.html # Custom 404 Error Page
-│ └── 500.html # Custom 500 Error Page
+│ ├── dashboard.html # Dashboard page
+│ ├── customers.html # Customers page
+│ ├── orders.html # Orders page
+│ ├── report.html # Reports page
+│ ├── 404.html # Custom 404 error page
+│ └── 500.html # Custom 500 error page
 │
 └── static/
 └── style.css # Custom styles
@@ -41,32 +44,80 @@ crm_erp_project/
 
 ## 💻 Local Development
 
-1. **Clone the repository:**
+### 1. Clone the repository:
+
 ```bash
 git clone https://github.com/TechTitanR/crm_erp_project.git
 ```
-  cd crm_erp_project
+cd crm_erp_project
 
 ---
 
-2. **Create virtual environment:**
-  python -m venv venv
-  venv\Scripts\activate   # On Windows
-  source venv/bin/activate  # On Mac/Linux
+### 2. Create virtual environment:
+```bash 
+python -m venv venv
+```
+# On Windows
+```bash 
+venv\Scripts\activate
+```
+# On Mac/Linux
+```bash
+source venv/bin/activate
+```
+---
+
+### 3. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+---
+
+### 4. Run the app:
+```bash
+python app.py
+```
+---
+
+### 5. Visit in your browser:
+```bash
+http://127.0.0.1:5000/
+```
+---
+
+## ☁️ Deployment on Render
+- Push your code to GitHub.
+- Log in to Render and create a new Web Service.
+- Connect your GitHub repository.
+- Set the following settings:
+
+### Build Command:
+```bash
+pip install -r requirements.txt
+```
+### Start Command:
+```bash
+python app.py
+```
+- (Optional) Add environment variables if required.
+
+## 🛠️ Tech Stack
+- Backend: Python, Flask
+- Database: SQLite
+- Frontend: HTML, CSS (Bootstrap)
+- Deployment: Render
+
+### 🔍 Preview
+- (Optional: Add your app screenshot here)
+
+/images/demo_screenshot.png
 
 ---
 
-3. **Install dependencies:**
-  pip install -r requirements.txt
+## 🙋‍♂️ Author
+Rishi Bakliwal
 
----
+--- 
 
-4. **Run the app:**
-   python app.py
-
----
-
-5. **Visit:**
- http://127.0.0.1:5000/
-
----
+## 📄 License
+This project is licensed under the MIT License - see the LICENSE file for details.
