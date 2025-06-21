@@ -1,30 +1,16 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+{% block title %}Report{% endblock %}
+
 {% block content %}
-<h3>Report Summary</h3>
+    <h1>Report</h1>
 
-<p><strong>Total Customers:</strong> {{ customers }}</p>
-<p><strong>Total Orders:</strong> {{ orders }}</p>
+    <p>Total Customers: {{ customers }}</p>
+    <p>Total Orders: {{ orders }}</p>
 
-<h4>Orders Details:</h4>
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>Order ID</th>
-            <th>Customer ID</th>
-            <th>Product</th>
-            <th>Status</th>
-        </tr>
-    </thead>
-    <tbody>
+    <h2>Orders Details:</h2>
+    <ul>
         {% for order in orders_list %}
-        <tr>
-            <td>{{ order.id }}</td>
-            <td>{{ order.customer_id }}</td>
-            <td>{{ order.product }}</td>
-            <td>{{ order.status }}</td>
-        </tr>
+            <li>Order ID: {{ order.id }} | Customer ID: {{ order.customer_id }} | Product: {{ order.product }} | Status: {{ order.status }}</li>
         {% endfor %}
-    </tbody>
-</table>
-
+    </ul>
 {% endblock %}

@@ -1,17 +1,25 @@
-{% extends 'base.html' %}
-{% block content %}
-<h3>Orders</h3>
-<ul>
-    {% for order in orders %}
-    <li>Product: {{ order.product }} | Status: {{ order.status }} | Customer ID: {{ order.customer_id }}</li>
-    {% endfor %}
-</ul>
+{% extends "base.html" %}
+{% block title %}Orders{% endblock %}
 
-<h4>Add Order</h4>
-<form method="POST" action="/add_order">
-    Customer ID: <input type="text" name="customer_id"><br>
-    Product: <input type="text" name="product"><br>
-    Status: <input type="text" name="status"><br>
-    <input type="submit" value="Add">
-</form>
+{% block content %}
+    <h1>Orders</h1>
+
+    <form action="{{ url_for('add_order') }}" method="POST">
+        <select name="customer_id" required>
+            <option value="">Select Customer</option>
+            {% for customer in customers %}
+                <option value="{{ customer.id }}">{{ customer.name }}</option>
+            {% endfor %}
+        </select><br>
+        <input type="text" name="product" placeholder="Product" required><br>
+        <input type="text" name="status" placeholder="Status" required><br>
+        <button type="submit">Add Order</button>
+    </form>
+
+    <h2>Order List</h2>
+    <ul>
+        {% for order in orders %}
+            <li>Order ID: {{ order.id }} | Customer ID: {{ order.customer_id }} | Product: {{ order.product }} | Status: {{ order.status }}</li>
+        {% endfor %}
+    </ul>
 {% endblock %}

@@ -1,6 +1,12 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+
 {% block content %}
-<h3>Dashboard</h3>
-<p>Total Customers: {{ customers }}</p>
-<p>Total Orders: {{ orders }}</p>
+    <h1>Dashboard</h1>
+    <div class="card">
+        <h2>Total Customers: {{ customers }}</h2>
+    </div>
+    <div class="card">
+        <h2>Total Orders: {{ orders }}</h2>
+    </div>
 {% endblock %}

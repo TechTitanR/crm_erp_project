@@ -1,17 +1,20 @@
-{% extends 'base.html' %}
-{% block content %}
-<h3>Customers</h3>
-<ul>
-    {% for customer in customers %}
-    <li>{{ customer.name }} | {{ customer.email }} | {{ customer.phone }}</li>
-    {% endfor %}
-</ul>
+{% extends "base.html" %}
+{% block title %}Customers{% endblock %}
 
-<h4>Add Customer</h4>
-<form method="POST" action="/add_customer">
-    Name: <input type="text" name="name"><br>
-    Email: <input type="text" name="email"><br>
-    Phone: <input type="text" name="phone"><br>
-    <input type="submit" value="Add">
-</form>
+{% block content %}
+    <h1>Customers</h1>
+
+    <form action="{{ url_for('add_customer') }}" method="POST">
+        <input type="text" name="name" placeholder="Name" required><br>
+        <input type="email" name="email" placeholder="Email" required><br>
+        <input type="text" name="phone" placeholder="Phone" required><br>
+        <button type="submit">Add Customer</button>
+    </form>
+
+    <h2>Customer List</h2>
+    <ul>
+        {% for customer in customers %}
+            <li>{{ customer.name }} | {{ customer.email }} | {{ customer.phone }}</li>
+        {% endfor %}
+    </ul>
 {% endblock %}
