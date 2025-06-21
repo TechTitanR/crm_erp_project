@@ -134,10 +134,14 @@ DATABASE_URL = (provided by Render PostgreSQL)
 ---
 
 ## 🖼️ Screenshots
-- Dashboard
-- Customers
-- Orders
-- Reports
+- Dashboard ![Screenshot 2025-06-21 142358](https://github.com/user-attachments/assets/ac9b532b-f639-49e1-8cf8-059999be5a4c)
+
+- Customers ![Screenshot 2025-06-21 142414](https://github.com/user-attachments/assets/e515b516-1878-48e4-91f4-f6b18ca69ff8)
+
+- Orders ![Screenshot 2025-06-21 142439](https://github.com/user-attachments/assets/4cdff9fb-74a1-457c-9ed0-89466095d485)
+
+- Reports ![Screenshot 2025-06-21 142448](https://github.com/user-attachments/assets/56c4df6e-e2db-453e-a92a-fd5530a77120)
+
 
 ---
 
