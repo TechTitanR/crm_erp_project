@@ -13,6 +13,7 @@ This app allows you to manage customers, orders, generate reports, and supports 
 
 ## ✨ Features
 
+```plaintxt
 ✅ Dashboard Summary (Total Customers & Orders)
 ✅ Add / View / Update / Delete Customers
 ✅ Add / View / Update / Delete Orders (with Customer Dropdown)
@@ -22,6 +23,7 @@ This app allows you to manage customers, orders, generate reports, and supports 
 ✅ Lightweight, Minimal UI
 ✅ PostgreSQL (Render) — Production Ready
 ✅ Render Deployment with Gunicorn
+```
 
 ---
 
