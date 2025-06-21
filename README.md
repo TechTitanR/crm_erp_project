@@ -42,28 +42,6 @@ crm_erp_project/
     └── style.css          # Custom styles
 
 ```
-=======
-## 🏗️ Project Structure
-
-crm_erp_project/
-│
-├── app.py # Main Flask application
-├── database.db # SQLite Database (ignored in Git)
-├── requirements.txt # Python dependencies
-├── Procfile # Deployment file (Render/Heroku)
-├── .gitignore # Git ignored files
-│
-├── templates/ # HTML Templates
-│ ├── base.html # Base template
-│ ├── dashboard.html # Dashboard page
-│ ├── customers.html # Customers page
-│ ├── orders.html # Orders page
-│ ├── report.html # Reports page
-│ ├── 404.html # Custom 404 error page
-│ └── 500.html # Custom 500 error page
-│
-└── static/
-└── style.css # Custom styles
 
 ---
 
@@ -140,10 +118,11 @@ python app.py
 ---
 
 ## 🙋‍♂️ Author
-Rishi Bakliwal
-rishibakliwaljain@gmail.com
+- Rishi Bakliwal
+- rishibakliwaljain@gmail.com
+
 --- 
 
 ## 📄 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+- This project is licensed under the MIT License - see the LICENSE file for details.
 
