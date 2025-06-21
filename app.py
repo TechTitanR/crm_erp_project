@@ -76,7 +76,9 @@ def not_found_error(error):
 def internal_error(error):
     return render_template('500.html'), 500
 
+# Ensure tables are created both locally and on Render
+with app.app_context():
+    db.create_all()
+
 if __name__ == "__main__":
-    with app.app_context():
-        db.create_all()  # Ensures tables are created in PostgreSQL
     app.run(debug=True)
