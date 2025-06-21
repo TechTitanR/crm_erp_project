@@ -49,7 +49,8 @@ def add_customer():
 @app.route('/orders')
 def orders():
     order_list = Order.query.all()
-    return render_template('orders.html', orders=order_list)
+    customer_list = Customer.query.all()  # Needed for dropdown
+    return render_template('orders.html', orders=order_list, customers=customer_list)
 
 @app.route('/add_order', methods=['POST'])
 def add_order():
@@ -58,6 +59,21 @@ def add_order():
     status = request.form['status']
     new_order = Order(customer_id=customer_id, product=product, status=status)
     db.session.add(new_order)
+    db.session.commit()
+    return redirect(url_for('orders'))
+
+@app.route('/update_order/<int:order_id>', methods=['POST'])
+def update_order(order_id):
+    order = Order.query.get_or_404(order_id)
+    order.product = request.form['product']
+    order.status = request.form['status']
+    db.session.commit()
+    return redirect(url_for('orders'))
+
+@app.route('/delete_order/<int:order_id>', methods=['POST'])
+def delete_order(order_id):
+    order = Order.query.get_or_404(order_id)
+    db.session.delete(order)
     db.session.commit()
     return redirect(url_for('orders'))
 

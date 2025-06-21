@@ -4,6 +4,7 @@
 {% block content %}
     <h1>Orders</h1>
 
+    <!-- Add New Order Form -->
     <form action="{{ url_for('add_order') }}" method="POST">
         <select name="customer_id" required>
             <option value="">Select Customer</option>
@@ -17,9 +18,41 @@
     </form>
 
     <h2>Order List</h2>
-    <ul>
-        {% for order in orders %}
-            <li>Order ID: {{ order.id }} | Customer ID: {{ order.customer_id }} | Product: {{ order.product }} | Status: {{ order.status }}</li>
-        {% endfor %}
-    </ul>
+    <table border="1" cellpadding="5" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Customer Name</th>
+                <th>Product</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+                <tr>
+                    <td>{{ order.id }}</td>
+                    <td>
+                        {% for customer in customers %}
+                            {% if customer.id == order.customer_id %}
+                                {{ customer.name }}
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>{{ order.product }}</td>
+                    <td>{{ order.status }}</td>
+                    <td>
+                        <form action="{{ url_for('update_order', order_id=order.id) }}" method="POST" style="display:inline;">
+                            <input type="text" name="product" placeholder="New Product" required>
+                            <input type="text" name="status" placeholder="New Status" required>
+                            <button type="submit">Update</button>
+                        </form>
+                        <form action="{{ url_for('delete_order', order_id=order.id) }}" method="POST" style="display:inline;">
+                            <button type="submit" onclick="return confirm('Are you sure you want to delete this order?');">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}
