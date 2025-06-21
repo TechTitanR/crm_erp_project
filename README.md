@@ -1,20 +1,27 @@
-# CRM/ERP Flask Web App
+# CRM/ERP Flask Web App (PostgreSQL + Render Deployment)
 
-A simple, lightweight **Customer and Order Management (CRM/ERP)** web application built using **Python Flask**, **SQLite**, and **SQLAlchemy**.  
-This project demonstrates a basic ERP system with CRUD functionalities, a dashboard, reports, error handling, and is fully ready for deployment on **Render**.
+A simple, fully functional **Customer & Order Management (CRM/ERP)** system built using **Flask**, **PostgreSQL (via Render)**, and **SQLAlchemy**.
+This app allows you to manage customers, orders, generate reports, and supports CRUD operations with database backups—all deployed on Render with live demo access.
 
 ---
 
-## 🚀 Features
+## 🚀 Live Demo
 
-✅ Dashboard Summary  
-✅ Add / View Customers  
-✅ Add / View Orders  
-✅ Basic Report Generation  
-✅ Custom 404 & 500 Error Pages  
-✅ Minimal UI with Bootstrap  
-✅ SQLite for lightweight storage  
-✅ Ready for deployment on Render  
+🔗 [Live Deployed App on Render](https://crm-erp-project.onrender.com)
+
+---
+
+## ✨ Features
+
+✅ Dashboard Summary (Total Customers & Orders)
+✅ Add / View / Update / Delete Customers
+✅ Add / View / Update / Delete Orders (with Customer Dropdown)
+✅ Auto PostgreSQL Table Creation on Deploy
+✅ Basic Report Generation (Orders Summary)
+✅ Error Handling: Custom 404 & 500 Pages
+✅ Lightweight, Minimal UI
+✅ PostgreSQL (Render) — Production Ready
+✅ Render Deployment with Gunicorn
 
 ---
 
@@ -24,22 +31,27 @@ This project demonstrates a basic ERP system with CRUD functionalities, a dashbo
 crm_erp_project/
 │
 ├── app.py                 # Main Flask application
-├── database.db            # SQLite Database (ignored in Git)
 ├── requirements.txt       # Python dependencies
-├── Procfile               # Deployment file (Render/Heroku)
+├── Procfile               # Deployment command (Gunicorn)
 ├── .gitignore             # Git ignored files
 │
-├── templates/             # HTML Templates
-│   ├── base.html          # Base template
-│   ├── dashboard.html     # Dashboard page
-│   ├── customers.html     # Customers page
-│   ├── orders.html        # Orders page
-│   ├── report.html        # Reports page
-│   ├── 404.html           # Custom 404 error page
-│   └── 500.html           # Custom 500 error page
+├── templates/             # HTML Templates (Jinja2)
+│   ├── base.html          
+│   ├── dashboard.html     
+│   ├── customers.html     
+│   ├── orders.html        
+│   ├── report.html        
+│   ├── 404.html           
+│   └── 500.html           
 │
-└── static/
-    └── style.css          # Custom styles
+├── static/
+│   └── style.css          # Custom CSS
+│
+└── screenshots/           # App Screenshots (For ReadMe)
+    ├── dashboard.png
+    ├── customers.png
+    ├── orders.png
+    └── reports.png
 
 ```
 
@@ -92,6 +104,7 @@ http://127.0.0.1:5000/
 - Push your code to GitHub.
 - Log in to Render and create a new Web Service.
 - Connect your GitHub repository.
+- Add PostgreSQL Service in Render Dashboard
 - Set the following settings:
 
 ### Build Command:
@@ -100,20 +113,29 @@ pip install -r requirements.txt
 ```
 ### Start Command:
 ```bash
-python app.py
+gunicorn app:app
 ```
+## Environment Variable:
 - (Optional) Add environment variables if required.
+```bash
+DATABASE_URL = (provided by Render PostgreSQL)
+```
+--- 
 
 ## 🛠️ Tech Stack
-- Backend: Python, Flask
-- Database: SQLite
-- Frontend: HTML, CSS (Bootstrap)
-- Deployment: Render
+- Backend: Python (Flask)
+- Database: PostgreSQL (Render)
+- ORM: SQLAlchemy
+- Frontend: HTML5, CSS3 (Jinja2)
+- Deployment: Render + Gunicorn
 
-### 🔍 Preview
-- (Optional: Add your app screenshot here)
+---
 
-/images/demo_screenshot.png
+## 🖼️ Screenshots
+- Dashboard
+- Customers
+- Orders
+- Reports
 
 ---
 
